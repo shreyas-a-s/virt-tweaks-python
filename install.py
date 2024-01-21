@@ -11,12 +11,12 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_dir)
 
 # Custom scripts
-run_command('scripts/install-command-not-found.py')  # Install command-not-found handler
-run_command('scripts/install-nvim.py')               # Install neovim
-run_command('scripts/install-programs.py')           # Install programs
-run_command('scripts/setup-auto-startx.py')          # Setup auto startx
-run_command('scripts/setup-autologin-to-tty.py')     # Setup autologin to tty
-run_command('scripts/setup-bootloader.py')           # Set bootloader timeout to 0 sec
+run_command('scripts/install-command-not-found.py')            # Install command-not-found handler
+run_command('scripts/install-nvim.py')                         # Install neovim
+run_command('scripts/install-programs.py')                     # Install programs
+run_command('scripts/setup-auto-startx.py')                    # Setup auto startx
+run_command('sudo python3 scripts/setup-autologin-to-tty.py')  # Setup autologin to tty
+run_command('scripts/setup-bootloader.py')                     # Set bootloader timeout to 0 sec
 
 # Setup zsh as user shell
 zsh_env_setup = "printf '### SET XDG DIR FOR ZSH ###\\nZDOTDIR=~/.config/zsh\\n' | sudo tee -a /etc/zsh/zshenv > /dev/null"
