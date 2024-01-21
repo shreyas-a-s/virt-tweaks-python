@@ -24,13 +24,13 @@ run_command('scripts/setup-bootloader.py')                     # Set bootloader 
 zsh_env_setup = "printf '### SET XDG DIR FOR ZSH ###\\nZDOTDIR=~/.config/zsh\\n' | sudo tee -a /etc/zsh/zshenv > /dev/null"
 zsh_path = shutil.which("zsh")
 if zsh_path:
-    try:
-        run_command(zsh_env_setup)
-        run_command(f'chsh -s "{zsh_path}"')
-    except subprocess.CalledProcessError:
-        print("Error setting Zsh as the user shell.")
+  try:
+    run_command(zsh_env_setup)
+    run_command(f'chsh -s "{zsh_path}"')
+  except subprocess.CalledProcessError:
+    print("Error setting Zsh as the user shell.")
 else:
-    print("Zsh is not installed or not in the PATH.")
+  print("Zsh is not installed or not in the PATH.")
 
 # Set xfce4-terminal as default
 run_command('sudo update-alternatives --set x-terminal-emulator /usr/bin/xfce4-terminal.wrapper')
